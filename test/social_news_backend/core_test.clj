@@ -1,6 +1,6 @@
-(ns social-new-backend.core-test
+(ns social-news-backend.core-test
   (:require [clojure.test :refer :all]
-            [social-new-backend.core :refer :all]))
+            [social-news-backend.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

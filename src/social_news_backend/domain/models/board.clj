@@ -1,4 +1,4 @@
-(ns social-new-backend.domain.models.board)
+(ns social-news-backend.domain.models.board)
 
 (defrecord ^:private Members [boardkeeper coboardkeeper member])
 (defrecord User [name])

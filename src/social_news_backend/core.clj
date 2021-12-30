@@ -1,4 +1,4 @@
-(ns social-new-backend.core
+(ns social-news-backend.core
   (:gen-class))
 
 (defn -main

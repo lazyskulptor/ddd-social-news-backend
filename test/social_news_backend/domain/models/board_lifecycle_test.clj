@@ -1,6 +1,6 @@
-(ns social-new-backend.domain.models.board-lifecycle-test
+(ns social-news-backend.domain.models.board-lifecycle-test
   (:require
-   [social-new-backend.domain.models.board :as b]
+   [social-news-backend.domain.models.board :as b]
    [clojure.test :refer :all]))
 
 (use-fixtures
