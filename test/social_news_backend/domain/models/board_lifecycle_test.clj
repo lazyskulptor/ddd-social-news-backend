@@ -9,19 +9,21 @@
   (fn [f]
     (def test-keeper (u/create-user {:name "Josh"}))
     (def test-board-name "main board")
+    (def test-param {:id nil, :name test-board-name, :public? true,
+                     :personal? false, :boardkeeper test-keeper})
     (f)))
 
 (deftest test-create
   (is
+   (= true
+      (b/board? (b/create-board test-param))))
+  (is
    (=
-    [nil test-board-name true false [test-keeper]]
-    (let [{:keys [id name public? personal? boardkeeper]}
-          (b/create-board
-           {:name test-board-name, :public? true :personal? false :boardkeeper test-keeper})]
-      [id name public? personal? boardkeeper])))
+    (assoc (dissoc test-param :boardkeeper)
+           :members (b/build-members (:boardkeeper test-param)))
+    (into {} (b/create-board test-param))))
 
   (is
    (thrown? AssertionError
-    (b/create-board
-     {:id 1 :name test-board-name, :public? true :personal? false :boardkeeper test-keeper})))
-  )
+            (b/create-board
+             {:id 1 :name test-board-name, :public? true :personal? false :boardkeeper test-keeper}))))
